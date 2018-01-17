@@ -2,7 +2,16 @@
   <div class="row">
 
     <h1>restaurant front end</h1>
-    
+
+    <br>
+    <ul class="nav nav-pills">
+      <li role="presentation" class="active"><%= link_to "All restaurants", root_path %></li>
+      <% @categories.each do |category| %>
+        <li role="presentation"><%= link_to category.name, category_path(category) %></li>
+      <% end %>
+    </ul>
+    <br>
+
     <% @restaurants.each do |restaurant| %>
       <div class="col-sm-6 col-md-4">
         <div class="restaurant-item">
