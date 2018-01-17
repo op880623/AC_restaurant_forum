@@ -1,0 +1,44 @@
+<div class="container">
+  <div class="row">
+
+    <% if @category %>
+      <h1><%= @category.name %></h1>
+    <% else %>
+      <h1>所有餐廳</h1>
+    <% end %>
+
+    <br>
+
+    <ul class="nav nav-pills">
+      <li role="presentation" class="<%= "active" if !@category %>">
+        <%= link_to "所有餐廳", root_path %>
+      </li>
+      <% @categories.each do |category| %>
+        <li role="presentation" class="<%= "active" if category == @category %>">
+          <%= link_to category.name, category_path(category) %>
+        </li>
+      <% end %>
+    </ul>
+
+    <br>
+
+    <% @restaurants.each do |restaurant| %>
+      <div class="col-sm-6 col-md-4">
+        <div class="restaurant-item">
+          <%= image_tag restaurant.image, class: "img-responsive center-block" %>
+          <div class="caption">
+            <h3><%= link_to restaurant.name, restaurant_path(restaurant) %></h3>
+            <p class="label label-default"><%= restaurant.category.name %><p>
+            <p><%= truncate(restaurant.description, length: 80) %></p>
+          </div>
+        </div>
+      </div>
+    <% end %>
+
+    <!-- 有generate kaminari paginate bootstrap style -->
+    <div class="text-center col-sm-12 col-md-12">
+      <%= paginate @restaurants %>
+    </div>
+
+  </div>
+</div>
