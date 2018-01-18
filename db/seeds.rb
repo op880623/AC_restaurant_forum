@@ -7,7 +7,7 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 
 # Default admin
-User.create(email: "root@example.com", password: "12345678", role: "admin")
+User.create(email: "op880623@gmail.com", password: "sdfghj", role: "admin", name: FFaker::Name.first_name, intro: FFaker::Lorem.paragraph)
 puts "Default admin created!"
 
 # Category

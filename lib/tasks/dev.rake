@@ -18,9 +18,25 @@ namespace :dev do
   task fake_user: :environment do
     User.destroy_all
 
-    User.create(email: "op880623@gmail.com", password: "sdfghj", role: "admin")
+    User.create(email: "op880623@gmail.com",
+      password: "sdfghj",
+      role: "admin",
+      name: FFaker::Name.first_name,
+      intro: FFaker::Lorem.paragraph
+    )
+    User.create(email: "test@test.test",
+      password: "sdfghj",
+      role: nil,
+      name: FFaker::Name.first_name,
+      intro: FFaker::Lorem.paragraph
+    )
     20.times do |i|
-      User.create(email: FFaker::InternetSE.email, password: "sdfghj", role: nil)
+      User.create(email: FFaker::InternetSE.email,
+        password: "sdfghj",
+        role: nil,
+        name: FFaker::Name.first_name,
+        intro: FFaker::Lorem.paragraph
+      )
     end
 
     puts "An admin account and 20 user accounts have been created."
