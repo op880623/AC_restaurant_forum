@@ -38,7 +38,9 @@
 
     <% @restaurant.comments.each do |comment| %>
       <div>
-        <h4><%= comment.user.email.split("@")[0] %></h4>
+        <%= link_to user_path(comment.user) do %>
+          <h4><%= comment.user.name %></h4>
+        <% end %>
         <%= simple_format comment.content %>
         <p class="text-muted">
           <em><%= time_ago_in_words(comment.created_at) %></em>
@@ -47,6 +49,7 @@
           <% end %>
         </p>
       </div>
+      <hr>
     <% end %>
 
   </div>
