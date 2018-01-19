@@ -8,7 +8,8 @@ namespace :dev do
         tel: FFaker::PhoneNumber.short_phone_number,
         address: FFaker::Address.street_address,
         description: FFaker::Lorem.paragraph,
-        category: Category.all.sample
+        category: Category.all.sample,
+        image: Rails.root.join("public/350x350.png").open
       )
     end
     puts "have created fake restaurants"
@@ -22,24 +23,27 @@ namespace :dev do
       password: "sdfghj",
       role: "admin",
       name: FFaker::Name.first_name,
-      intro: FFaker::Lorem.paragraph
+      intro: FFaker::Lorem.paragraph,
+      avatar: Rails.root.join("public/350x350.png").open
     )
     User.create(email: "test@test.test",
       password: "sdfghj",
       role: nil,
       name: FFaker::Name.first_name,
-      intro: FFaker::Lorem.paragraph
+      intro: FFaker::Lorem.paragraph,
+      avatar: Rails.root.join("public/350x350.png").open
     )
-    20.times do |i|
+    18.times do |i|
       User.create(email: FFaker::InternetSE.email,
         password: "sdfghj",
         role: nil,
         name: FFaker::Name.first_name,
-        intro: FFaker::Lorem.paragraph
+        intro: FFaker::Lorem.paragraph,
+        avatar: Rails.root.join("public/350x350.png").open
       )
     end
 
-    puts "An admin account and 20 user accounts have been created."
+    puts "An admin account and 19 user accounts have been created."
   end
 
   task fake_comment: :environment do
