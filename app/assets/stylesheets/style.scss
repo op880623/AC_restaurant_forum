@@ -13,3 +13,25 @@
 .restaurant-item .caption {
   padding: 10px;
 }
+
+.my-restaurant {
+  display: inline-block;
+  text-align: center;
+  padding: 10px;
+}
+
+.my-restaurant > div {
+  height: 150px;
+}
+
+.my-restaurant img {
+  max-height: 100%;
+}
+
+.panel-body a {
+  text-decoration: none;
+}
+
+.panel a:hover .my-restaurant {
+  background-color: #eee;
+}

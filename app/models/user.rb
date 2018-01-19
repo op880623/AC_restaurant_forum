@@ -6,6 +6,7 @@ class User < ApplicationRecord
 
   mount_uploader :avatar, AvatarUploader
   has_many :comments, dependent: :destroy
+  has_many :restaurants, through: :comments
 
   def admin?
     return self.role == "admin"
