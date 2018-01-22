@@ -33,7 +33,7 @@
               <div>
                 <h4>
                   <%= link_to restaurant.name, restaurant_path(restaurant) %>
-                  <small><%= restaurant.category.name %></small>
+                  <small><%= restaurant.category.name if restaurant.category %></small>
                 </h4>
                 <p><%= truncate(restaurant.description, length: 80) %></p>
                 <hr>
@@ -51,7 +51,7 @@
               <div>
                 <h4>
                   <%= link_to comment.restaurant.name, restaurant_path(comment.restaurant) %>
-                  <small><%= comment.restaurant.category.name %></small>
+                  <small><%= comment.restaurant.category.name if comment.restaurant.category %></small>
                 </h4>
                 <p>
                   <%= truncate(comment.content, length: 80) %>

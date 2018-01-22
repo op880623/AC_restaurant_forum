@@ -4,7 +4,7 @@
       <h1><%= @restaurant.name %></h1>
     </div>
     <div class="col-md-4">
-      <%= @restaurant.category.name %>
+      <%= @restaurant.category.name if @restaurant.category %>
       <%= image_tag @restaurant.image, class: "img-responsive center-block" %>
       <br>
       <div class="well">
