@@ -8,6 +8,9 @@ class User < ApplicationRecord
   has_many :comments, dependent: :destroy
   has_many :restaurants, through: :comments
 
+  has_many :favorites, dependent: :destroy
+  has_many :favorites_restaurants, through: :favorites, source: :restaurant
+
   def admin?
     return self.role == "admin"
   end
