@@ -64,10 +64,6 @@ namespace :dev do
     100.times do
       Favorite.create!(restaurant: Restaurant.all.sample, user: User.all.sample)
     end
-
-    Restaurant.all.each do |r|
-      r.update_favorites_count
-    end
   end
 
 end
