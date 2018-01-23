@@ -57,4 +57,17 @@ namespace :dev do
 
     puts "Add 3 comments to each restaurant."
   end
+
+  task fake_favorite: :environment do
+    Favorite.destroy_all
+
+    100.times do
+      Favorite.create!(restaurant: Restaurant.all.sample, user: User.all.sample)
+    end
+
+    Restaurant.all.each do |r|
+      r.update_favorites_count
+    end
+  end
+
 end
