@@ -1,11 +1,13 @@
 <div class="container">
   <div class="row">
 
-    <% if @category %>
-      <h1><%= @category.name %></h1>
-    <% else %>
-      <h1>所有餐廳</h1>
-    <% end %>
+    <div class="page-header">
+      <% if @category %>
+        <h1><%= @category.name %></h1>
+      <% else %>
+        <h1>所有餐廳</h1>
+      <% end %>
+    </div>
 
     <br>
 
