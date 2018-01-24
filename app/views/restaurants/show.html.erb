@@ -5,7 +5,10 @@
       <h1><%= @restaurant.name %></h1>
     </div>
     <div class="col-md-4">
-      <%= @restaurant.category.name if @restaurant.category %>
+      <div class="well">
+        <%= @restaurant.category.name if @restaurant.category %>
+        <span class="label label-default">收藏數：<%= @restaurant.favorites_count %></span>
+      </div>
       <%= image_tag @restaurant.image, class: "img-responsive center-block" %>
       <br>
       <div class="well">

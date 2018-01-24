@@ -66,4 +66,13 @@ namespace :dev do
     end
   end
 
+  task fake_followship: :environment do
+    Followship.destroy_all
+
+    100.times do
+      f = Followship.new(follower: User.all.sample, following: User.all.sample)
+      f.save
+    end
+  end
+
 end
