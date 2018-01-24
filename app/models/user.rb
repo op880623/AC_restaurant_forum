@@ -14,6 +14,10 @@ class User < ApplicationRecord
   has_many :likes, dependent: :destroy
   has_many :liked_restaurants, through: :likes, source: :restaurant
 
+  has_many :followships, dependent: :destroy
+  has_many :followings, through: :followships
+  has_many :followers, through: :followships
+
   def admin?
     return self.role == "admin"
   end
