@@ -37,6 +37,7 @@
             <%= image_tag(user.avatar, class: "img-rounded") %>
             <h4><%= user.name %></h4>
           <% end %>
+          <span class="label label-default">followers：<%= user.followers_count %></span>
           <%= render partial: "shared/follow", locals: {user: user} %>
         </div>
       <% end %>

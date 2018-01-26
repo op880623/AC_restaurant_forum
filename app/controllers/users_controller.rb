@@ -2,7 +2,7 @@ class UsersController < ApplicationController
   before_action :set_user, except: :index
 
   def index
-    @users = User.all
+    @users = User.all.order(followers_count: :desc)
   end
 
   def show
